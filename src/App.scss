@@ -1,0 +1,29 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.grid {
+  display: grid;
+  padding: 10px;
+  grid-template-columns: 9rem 9rem 9rem;
+  border: 1px solid black;
+}
+.grid-item {
+  border: 1px dotted black;
+  display: flex;
+}
+.dropzone {
+  border: 1px solid black;
+}
+.dropzone div {
+  border: 1px dotted black;
+}
