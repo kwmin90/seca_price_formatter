@@ -2,19 +2,18 @@ import React, { useState } from "react";
 import Dropzone from "react-dropzone";
 
 interface FileUpload {
-  excel: File;
   setExcel: React.Dispatch<React.SetStateAction<string[]>>;
 }
 
 export const FileUpload: React.FC<any> = ({ ...props }) => {
-  const { excel, setExcel } = props;
+  const { setExcel } = props;
   const [name, setName] = useState<string | null>(null);
   const [uploaded, setUploaded] = useState<boolean>(false);
 
   const submitFile = (file: File) => {
     setName(file.name);
     setUploaded(true);
-    setExcel(file);
+    setExcel(file.path);
   };
   const handleCancel = () => {
     setName(null);

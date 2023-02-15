@@ -36,6 +36,7 @@
     "node": "^14.18.0 || >=16.0.0"
   },
   "dependencies": {
+    "exceljs": "^4.3.0",
     "react-dropzone": "^14.2.3",
     "vite-tsconfig-paths": "^4.0.5"
   }

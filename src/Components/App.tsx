@@ -1,22 +1,18 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import "../App.scss";
 import { internalEPP, externalEPP } from "@/utils/utils";
 import { Checkbox } from "./Checkbox";
 import { FileUpload } from "./Fileupload";
-import { sendData, sendFile } from "@/services/node-api";
+import { sendData } from "@/services/node-api";
 
 function App() {
   const [value, setValue] = useState<Array<string>>([]);
-  const [excel, setExcel] = useState<File | null>(null);
-
-  // useEffect(() => {
-  //   console.log(value);
-  // }, [value]);
+  const [excel, setExcel] = useState<String>();
 
   const handleClick = () => {
-    // sendData(value);
-    sendFile(excel);
+    console.log(value);
     console.log(excel);
+    sendData(value, excel);
   };
   return (
     <div className="App">

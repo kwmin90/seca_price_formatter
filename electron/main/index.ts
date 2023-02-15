@@ -1,7 +1,7 @@
 import { app, BrowserWindow, shell, ipcMain } from "electron";
 import { release } from "node:os";
 import { join } from "node:path";
-import { readFile } from "node:fs";
+import { format } from "../services/api";
 
 // The built directory structure
 //
@@ -117,14 +117,7 @@ ipcMain.handle("open-win", (_, arg) => {
   }
 });
 
-ipcMain.on("send-site-value", (event, data) => {
-  console.log(data);
-  event.reply("send-site-value-reply", "received");
-});
-ipcMain.on("send-file", (event, data) => {
-  console.log(data);
-  // readFile(data.name, "utf8", (file) => {
-  //   console.log(file);
-  // });
-  event.reply("send-file-reply", "received");
+ipcMain.on("send-data", (event, data) => {
+  const { sites, path } = data;
+  format(path, sites);
 });
