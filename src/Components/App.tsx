@@ -6,13 +6,13 @@ import { FileUpload } from "./Fileupload";
 import { sendData } from "@/services/node-api";
 
 function App() {
-  const [value, setValue] = useState<Array<string>>([]);
-  const [excel, setExcel] = useState<String>();
+  const [sites, setSites] = useState<Array<String>>([]);
+  const [path, setPath] = useState<String | null>(null);
 
   const handleClick = () => {
-    console.log(value);
-    console.log(excel);
-    sendData(value, excel);
+    if (path) {
+      sendData(sites, path);
+    }
   };
   return (
     <div className="App">
@@ -21,14 +21,14 @@ function App() {
       </div>
       <div>
         <h3>Internal EPP</h3>
-        <Checkbox epp={internalEPP} setValue={setValue} />
+        <Checkbox epp={internalEPP} setSites={setSites} />
       </div>
       <div>
         <h3>External EPP</h3>
-        <Checkbox epp={externalEPP} setValue={setValue} />
+        <Checkbox epp={externalEPP} setSites={setSites} />
       </div>
       <div>
-        <FileUpload file={excel} setExcel={setExcel} />
+        <FileUpload setPath={setPath} />
       </div>
     </div>
   );

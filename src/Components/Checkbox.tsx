@@ -3,30 +3,30 @@ import { EPP } from "@/types/EPP";
 
 interface CheckboxProps {
   epp: EPP[];
-  setValue: React.Dispatch<React.SetStateAction<string[]>>;
+  setSites: React.Dispatch<React.SetStateAction<String[]>>;
 }
 export const Checkbox: React.FC<CheckboxProps> = (props: CheckboxProps) => {
-  const { epp, setValue } = props;
+  const { epp, setSites } = props;
   const [isCheckAll, setIsCheckAll] = useState(false);
-  const [isCheck, setIsCheck] = useState<Array<string>>([]);
+  const [isCheck, setIsCheck] = useState<Array<String>>([]);
 
   const handleCheckAll = (epp: EPP[]) => {
     setIsCheckAll(!isCheckAll);
     setIsCheck(epp.map((item) => item.name));
-    setValue(epp.map((item) => item.name));
+    setSites(epp.map((item) => item.name));
     if (isCheckAll) {
       setIsCheck([]);
-      setValue([]);
+      setSites([]);
     }
   };
 
   const handleCheck = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { id, checked } = e.target;
     setIsCheck([...isCheck, id]);
-    setValue([...isCheck, id]);
+    setSites([...isCheck, id]);
     if (!checked) {
       setIsCheck(isCheck.filter((item) => item !== id));
-      setValue(isCheck.filter((item) => item !== id));
+      setSites(isCheck.filter((item) => item !== id));
     }
   };
   return (

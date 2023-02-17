@@ -1,7 +1,7 @@
 import { app, BrowserWindow, shell, ipcMain } from "electron";
 import { release } from "node:os";
 import { join } from "node:path";
-import { format } from "../services/api";
+import { format, formatEPP } from "../services/api";
 
 // The built directory structure
 //
@@ -119,5 +119,9 @@ ipcMain.handle("open-win", (_, arg) => {
 
 ipcMain.on("send-data", (event, data) => {
   const { sites, path } = data;
-  format(path, sites);
+  if (sites) {
+    formatEPP(path, sites);
+  } else {
+    format(path);
+  }
 });
