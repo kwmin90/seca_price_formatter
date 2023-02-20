@@ -120,8 +120,12 @@ ipcMain.handle("open-win", (_, arg) => {
 ipcMain.on("send-data", (event, data) => {
   const { sites, path } = data;
   if (sites) {
-    formatEPP(path, sites);
+    formatEPP(path, sites).then((res) => {
+      event.reply("send-data-reply", res);
+    });
   } else {
-    format(path);
+    format(path).then((res) => {
+      event.reply("send-data-reply", res);
+    });
   }
 });

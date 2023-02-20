@@ -15,7 +15,10 @@ export const FileUpload: React.FC<FileUpload> = ({ ...props }) => {
     setUploaded(true);
     setPath(file.path);
   };
-  const handleCancel = () => {
+  const handleCancel = (
+    e: React.MouseEvent<HTMLParagraphElement, MouseEvent>
+  ) => {
+    e.preventDefault();
     setName(null);
     setUploaded(false);
     setPath(null);
@@ -32,13 +35,11 @@ export const FileUpload: React.FC<FileUpload> = ({ ...props }) => {
             {uploaded ? (
               <div>
                 <p>Uploaded file name: {name}</p>
-                <p onClick={() => handleCancel()}>Cancel</p>
+                <p onClick={(e) => handleCancel(e)}>Cancel</p>
               </div>
             ) : (
               <div>
-                <p>Drag your file here</p>
-                <p>or</p>
-                <button type="button">Browse</button>
+                <p>Drag your file here or click to select files</p>
               </div>
             )}
           </div>

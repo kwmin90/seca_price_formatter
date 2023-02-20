@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { EPP } from "@/types/EPP";
+import { EPP } from "@/types/types";
 
 interface CheckboxProps {
   epp: EPP[];
