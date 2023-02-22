@@ -119,7 +119,8 @@ ipcMain.handle("open-win", (_, arg) => {
 
 ipcMain.on("send-data", (event, data) => {
   const { sites, path } = data;
-  if (sites.length >= 1) {
+  console.log(sites);
+  if (sites && sites.length >= 1) {
     formatEPP(path, sites).then((res) => {
       event.reply("send-data-reply", res);
     });

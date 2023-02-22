@@ -48,7 +48,7 @@ export const format = (path: string): Promise<ResponseData> => {
       return {
         success: true,
         sites: 1,
-        rows: worksheet.rowCount,
+        rows: worksheet.rowCount - 1,
       };
     })
     .catch(() => {

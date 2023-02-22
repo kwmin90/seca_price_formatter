@@ -1,5 +1,5 @@
 {
-  "name": "electron-vite-react",
+  "name": "seca_price_formatter",
   "version": "2.1.0",
   "main": "dist-electron/main/index.js",
   "description": "Electron Vite React boilerplate.",

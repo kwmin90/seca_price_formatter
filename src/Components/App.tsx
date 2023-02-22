@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "../App.scss";
 import { internalEPP, externalEPP } from "@/utils/utils";
 import { Checkbox } from "./Checkbox";
@@ -14,9 +14,12 @@ function App() {
   const [intEPP, setIntEPP] = useState<Array<String>>([]);
   const [exEPP, setExEPP] = useState<Array<String>>([]);
 
+  useEffect(() => {
+    setSites([...intEPP, ...exEPP]);
+  }, [exEPP, intEPP]);
+
   const handleClick = () => {
     if (path) {
-      setSites([...intEPP, ...exEPP]);
       ipcRenderer.send("send-data", {
         sites,
         path,
@@ -26,7 +29,7 @@ function App() {
         if (data[0].success) {
           toast(`Updated ${data[0].rows} rows`);
         } else {
-          toast(`Update failed`);
+          toast(`Update failed: NASCA`);
         }
       });
     }
@@ -35,7 +38,7 @@ function App() {
     <div className="App">
       <ToastContainer
         position="top-center"
-        autoClose={100000}
+        autoClose={5000}
         hideProgressBar
         limit={1}
       />
