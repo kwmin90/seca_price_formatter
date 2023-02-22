@@ -11,9 +11,12 @@ import { ResponseData } from "../types/types";
 function App() {
   const [sites, setSites] = useState<Array<String>>([]);
   const [path, setPath] = useState<String | null>(null);
+  const [intEPP, setIntEPP] = useState<Array<String>>([]);
+  const [exEPP, setExEPP] = useState<Array<String>>([]);
 
   const handleClick = () => {
     if (path) {
+      setSites([...intEPP, ...exEPP]);
       ipcRenderer.send("send-data", {
         sites,
         path,
@@ -41,11 +44,11 @@ function App() {
       </div>
       <div>
         <h3>Internal EPP</h3>
-        <Checkbox epp={internalEPP} setSites={setSites} />
+        <Checkbox epp={internalEPP} setSites={setIntEPP} />
       </div>
       <div>
         <h3>External EPP</h3>
-        <Checkbox epp={externalEPP} setSites={setSites} />
+        <Checkbox epp={externalEPP} setSites={setExEPP} />
       </div>
       <div>
         <FileUpload setPath={setPath} />

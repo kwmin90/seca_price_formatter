@@ -119,7 +119,7 @@ export const formatEPP = (
       return {
         success: true,
         sites: sites.length + 1,
-        rows: worksheet.rowCount,
+        rows: worksheet.rowCount - 1,
       };
     })
     .catch(() => {
