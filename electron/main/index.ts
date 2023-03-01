@@ -74,6 +74,8 @@ async function createWindow() {
     if (url.startsWith("https:")) shell.openExternal(url);
     return { action: "deny" };
   });
+
+  win.setMenuBarVisibility(false);
 }
 
 app.whenReady().then(createWindow);
@@ -119,7 +121,6 @@ ipcMain.handle("open-win", (_, arg) => {
 
 ipcMain.on("send-data", (event, data) => {
   const { sites, path } = data;
-  console.log(sites);
   if (sites && sites.length >= 1) {
     formatEPP(path, sites).then((res) => {
       event.reply("send-data-reply", res);

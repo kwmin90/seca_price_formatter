@@ -1,9 +1,9 @@
 {
-  "name": "seca_price_formatter",
+  "name": "SECA Price Formatter",
   "version": "2.1.0",
   "main": "dist-electron/main/index.js",
-  "description": "Electron Vite React boilerplate.",
-  "author": "草鞋没号 <308487730@qq.com>",
+  "description": "Utility tool for formatting price file for Hybris bulk upload.",
+  "author": "Steve Min <steve.min@cheil.com>",
   "license": "MIT",
   "private": true,
   "debug": {

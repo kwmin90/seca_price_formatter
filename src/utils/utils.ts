@@ -15,4 +15,5 @@ export const externalEPP = [
   { name: "education1", id: 8 },
   { name: "serviceplus", id: 9 },
   { name: "directaccounts", id: 10 },
+  { name: "sppsso2", id: 11 },
 ];
