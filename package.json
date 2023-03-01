@@ -1,5 +1,5 @@
 {
-  "name": "SECA Price Formatter",
+  "name": "seca_price_formatter",
   "version": "2.1.0",
   "main": "dist-electron/main/index.js",
   "description": "Utility tool for formatting price file for Hybris bulk upload.",
